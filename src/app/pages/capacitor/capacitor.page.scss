@@ -1,0 +1,25 @@
+.modulos {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .modulo {
+  
+    flex: 1;
+      justify-content: space-between;
+    text-align: center;
+  }
+  
+  .modulo > ion-icon{
+    color:black;
+    background:red;
+    padding:15px;
+    border-radius: 50%;
+    font-size: 185%;
+  }
+  
+      
+  .video {
+    width: 100%;
+    height: 400px;
+  }

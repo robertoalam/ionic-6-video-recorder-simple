@@ -1,0 +1,24 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>MULTIMEDIA - Navigator</ion-title>
+  </ion-toolbar>
+</ion-header>
+<iframe allow="camera; microphone"></iframe>
+<ion-content [fullscreen]="true" class="ion-padding">
+  <div class="modulos">
+    <div class="modulo" (click)="imagemSelecionar()">
+      <ion-icon name="image-outline"></ion-icon>
+    </div>
+    <div class="modulo" (click)="photoSelecionar()">
+      <ion-icon name="camera-outline"></ion-icon>
+    </div>
+    <div class="modulo" (click)="videoSelecionar()">
+      <ion-icon name="videocam-outline"></ion-icon>
+    </div>
+    <div class="modulo">
+      <ion-icon name="mic-outline"></ion-icon>
+    </div>
+  </div>
+  <h3>LISTAGEM</h3>
+  <video class="video" #video autoplay playsinline muted [hidden]="!isRecording"></video>
+</ion-content>

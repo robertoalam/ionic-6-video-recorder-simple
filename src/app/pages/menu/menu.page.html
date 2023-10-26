@@ -1,0 +1,12 @@
+<ion-content [fullscreen]="true">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6" *ngFor="let pagina of paginas" routerLink="{{pagina.rota}}">
+        <div class="thumb">
+          <ion-icon name="{{pagina.icone}}"></ion-icon>
+        </div>
+        <label class="title">{{pagina.title}}</label>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
