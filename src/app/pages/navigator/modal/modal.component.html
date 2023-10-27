@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-icon slot="start" name="arrow-back" size="large" (click)="ionViewCanLeave()"></ion-icon>
+    <ion-title>MODAL</ion-title>
+    <ion-icon slot="end" name="checkmark-sharp" size="large" (click)="salvar()"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <video class="video" #video autoplay playsinline muted ></video>
+
+  <div class="buttonsAction">
+
+    <ion-button (click)="recording()">
+      <ion-icon name="radio-button-on-outline" size="large"></ion-icon>
+    </ion-button>
+
+    <ion-button>
+      <ion-icon name="pause-outline" size="large"></ion-icon>
+    </ion-button>
+
+    <ion-button [hidden]="this.isRecording" (click)="stoping()">
+      <ion-icon name="stop-outline" size="large"></ion-icon>
+    </ion-button>  
+  </div>
+</ion-content>

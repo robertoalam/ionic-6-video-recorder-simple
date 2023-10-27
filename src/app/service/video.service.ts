@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, ElementRef, Injectable, ViewChild } from '@angular/core';
+import { ElementRef, Injectable, ViewChild } from '@angular/core';
 import { Filesystem, FilesystemDirectory } from '@capacitor/filesystem';
 import { Plugins } from '@capacitor/core';
 
@@ -11,17 +11,16 @@ export class VideoService {
   mediaRecorder: any;
   videoPlayer: any;
   isRecording = false;
+  private VIDEOS_KEY: string = 'videos';
   videos:any = [];
 
-  constructor(
-    private changeDetector: ChangeDetectorRef
-  ) { }
+  constructor( ) { }
 
   
   async loadVideos() {
-    // const videoList = await Storage.get({ key: this.VIDEOS_KEY });
-    const videoList = await Storage['get']
-    this.videos = JSON.parse(videoList.value) || [];
+    // const videoList = await Storage['get']({ key: this.VIDEOS_KEY });
+    const videoList = localStorage.getItem('videos')!
+    this.videos = JSON.parse(videoList) || [];
     return this.videos;
   }
 
@@ -38,11 +37,12 @@ export class VideoService {
     this.videos.unshift(savedFile.uri);
 
     // Write information to storage
-    return ;
-    // return Storage.set({
-    //   key: this.VIDEOS_KEY,
-    //   value: JSON.stringify(this.videos)
-    // });
+    return localStorage.setItem(
+      'id',JSON.stringify({
+        key: this.VIDEOS_KEY,
+        value: JSON.stringify(this.videos)
+      })
+    )
   }
 
   // Helper function

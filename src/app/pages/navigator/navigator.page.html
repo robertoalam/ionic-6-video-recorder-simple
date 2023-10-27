@@ -3,7 +3,7 @@
     <ion-title>MULTIMEDIA - Navigator</ion-title>
   </ion-toolbar>
 </ion-header>
-<iframe allow="camera; microphone"></iframe>
+
 <ion-content [fullscreen]="true" class="ion-padding">
   <div class="modulos">
     <div class="modulo" (click)="imagemSelecionar()">
@@ -12,7 +12,7 @@
     <div class="modulo" (click)="photoSelecionar()">
       <ion-icon name="camera-outline"></ion-icon>
     </div>
-    <div class="modulo" (click)="videoSelecionar()">
+    <div class="modulo" (click)="modalOpen('video',null)">
       <ion-icon name="videocam-outline"></ion-icon>
     </div>
     <div class="modulo">
@@ -20,5 +20,7 @@
     </div>
   </div>
   <h3>LISTAGEM</h3>
-  <video class="video" #video autoplay playsinline muted [hidden]="!isRecording"></video>
+  <ion-item *ngFor="let video of videos;" (click)="modalOpen('video',video)" tappable>
+    {{ video }}
+  </ion-item>
 </ion-content>

@@ -7,6 +7,8 @@ import { IonicModule } from '@ionic/angular';
 import { NavigatorPageRoutingModule } from './navigator-routing.module';
 
 import { NavigatorPage } from './navigator.page';
+import { ModalPage } from './modal/modal.component';
+import { VideoService } from 'src/app/service/video.service';
 
 @NgModule({
   imports: [
@@ -15,6 +17,7 @@ import { NavigatorPage } from './navigator.page';
     IonicModule,
     NavigatorPageRoutingModule
   ],
-  declarations: [NavigatorPage]
+  declarations: [NavigatorPage,ModalPage],
+  providers:[VideoService]
 })
 export class NavigatorPageModule {}
