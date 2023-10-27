@@ -9,11 +9,16 @@
 <ion-content class="ion-padding">
 
   <video class="video" #video autoplay playsinline muted ></video>
-
+  <div id="fullscreen" slot="fixed"></div>
+  
   <div class="buttonsAction">
 
-    <ion-button (click)="recording()">
+    <ion-button [hidden]="true" (click)="recording()">
       <ion-icon name="radio-button-on-outline" size="large"></ion-icon>
+    </ion-button>
+
+    <ion-button [hidden]="true" (click)="playing()">
+      <ion-icon name="play-outline" size="large"></ion-icon>
     </ion-button>
 
     <ion-button>

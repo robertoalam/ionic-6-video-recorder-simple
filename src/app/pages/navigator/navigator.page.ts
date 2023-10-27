@@ -16,7 +16,6 @@ import { ModalPage } from './modal/modal.component';
 })
 export class NavigatorPage  implements AfterViewInit {
 
-  images : LocalFile[] = [];
   @ViewChild('video') captureElement!: ElementRef ;
   mediaRecorder: any;
   videoPlayer: any;
@@ -66,7 +65,7 @@ export class NavigatorPage  implements AfterViewInit {
       component: ModalPage,
       componentProps: {
         modulo:modulo,
-        objeto:null
+        objeto:objeto
       }
     });
     modal.present();
@@ -77,10 +76,4 @@ export class NavigatorPage  implements AfterViewInit {
     }
   }
 
-}
-
-interface LocalFile{
-  name:string;
-  path:string;
-  data:string;
 }

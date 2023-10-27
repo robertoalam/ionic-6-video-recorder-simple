@@ -16,12 +16,10 @@ export class VideoService {
 
   constructor( ) { }
 
-  
   async loadVideos() {
-    // const videoList = await Storage['get']({ key: this.VIDEOS_KEY });
     const videoList = localStorage.getItem('videos')!
     this.videos = JSON.parse(videoList) || [];
-    return this.videos;
+    return this.videos ;
   }
 
   async storeVideo(blob : any) {
@@ -38,10 +36,7 @@ export class VideoService {
 
     // Write information to storage
     return localStorage.setItem(
-      'id',JSON.stringify({
-        key: this.VIDEOS_KEY,
-        value: JSON.stringify(this.videos)
-      })
+      'videos',JSON.stringify(this.videos)
     )
   }
 
