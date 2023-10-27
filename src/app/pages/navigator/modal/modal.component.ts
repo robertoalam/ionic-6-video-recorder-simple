@@ -1,4 +1,4 @@
-import { AfterViewInit, CUSTOM_ELEMENTS_SCHEMA, ChangeDetectorRef, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, ViewChild } from '@angular/core';
 import { ModalController, NavParams } from '@ionic/angular';
 import { VideoService } from 'src/app/service/video.service';
 import { Capacitor } from '@capacitor/core';

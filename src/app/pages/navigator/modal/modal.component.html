@@ -9,9 +9,7 @@
 <ion-content class="ion-padding">
   <div *ngIf="flagPlaying==true; else gravar">
     {{this.objeto}}
-    <video class="video" #video controls>
-      <source type="video/mp4">
-    </video>
+    <video class="video" #video controls></video>
   </div>
 
   <ng-template #gravar>
