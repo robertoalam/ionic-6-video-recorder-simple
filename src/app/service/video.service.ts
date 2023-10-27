@@ -59,4 +59,5 @@ export class VideoService {
     });
     return `data:video/mp4;base64,${file.data}`;
   }
+
 }

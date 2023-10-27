@@ -7,26 +7,28 @@
 </ion-header>
 
 <ion-content class="ion-padding">
-
-  <video class="video" #video autoplay playsinline muted ></video>
-  <div id="fullscreen" slot="fixed"></div>
-  
-  <div class="buttonsAction">
-
-    <ion-button [hidden]="true" (click)="recording()">
-      <ion-icon name="radio-button-on-outline" size="large"></ion-icon>
-    </ion-button>
-
-    <ion-button [hidden]="true" (click)="playing()">
-      <ion-icon name="play-outline" size="large"></ion-icon>
-    </ion-button>
-
-    <ion-button>
-      <ion-icon name="pause-outline" size="large"></ion-icon>
-    </ion-button>
-
-    <ion-button [hidden]="this.isRecording" (click)="stoping()">
-      <ion-icon name="stop-outline" size="large"></ion-icon>
-    </ion-button>  
+  <div *ngIf="flagPlaying==true; else gravar">
+    {{this.objeto}}
+    <video class="video" #video controls>
+      <source type="video/mp4">
+    </video>
   </div>
+
+  <ng-template #gravar>
+
+    <video class="video" #video autoplay playsinline muted ></video>
+
+    <div class="buttonsAction" >
+      <button  (click)="recording()">
+        <ion-icon name="radio-button-on-outline" size="large"></ion-icon>
+      </button>
+
+      <button (click)="stoping()">
+        <ion-icon name="stop-outline" size="large"></ion-icon>
+      </button>  
+    </div>
+  </ng-template>
+
+
+  
 </ion-content>

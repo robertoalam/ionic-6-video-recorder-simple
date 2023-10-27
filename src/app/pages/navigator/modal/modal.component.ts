@@ -15,11 +15,15 @@ export class ModalPage  implements AfterViewInit {
 
   
   @ViewChild('video') captureElement!: ElementRef ;
+
   mediaRecorder: any;
   videoPlayer: any;
   isRecording = false;
   videos = [];
   objeto:any = null;
+  flagPlaying:boolean=true;
+  realUrl:any;
+
   constructor(
     private navParam:NavParams,
     private modalController:ModalController,
@@ -28,12 +32,17 @@ export class ModalPage  implements AfterViewInit {
 
   ) { 
     this.objeto = this.navParam.get('objeto')
+    this.flagPlaying = (this.objeto)?true:false;
   }
 
   ngAfterViewInit(){
     this.videoPlayer = (Capacitor.isNative) 
       ? CapacitorVideoPlayer
       : WebVPPlugin.CapacitorVideoPlayer
+    
+    if(this.flagPlaying){
+      this.playing2();
+    }
   }
 
   async recording(){
@@ -85,14 +94,26 @@ export class ModalPage  implements AfterViewInit {
   async playing() {
     let video = this.objeto
     // Get the video as base64 data
-    const realUrl = await this.videoService.getVideoUrl(video);
+    // this.realUrl = await this.videoService.getVideoUrl(video);
+    this.realUrl = await this.videoService.getVideoUrl(video);
+
     // Show the player fullscreen
     await this.videoPlayer.initPlayer({
       mode: 'fullscreen',
-      url: realUrl,
+      url: this.realUrl,
       playerId: 'fullscreen',
       componentTag: 'app-home'
     });    
+  }
+
+  
+  async playing2() {
+    
+    let video = this.captureElement.nativeElement
+    // Get the video as base64 data
+    this.realUrl = await this.videoService.getVideoUrl(this.objeto);
+    video.setAttribute('src',this.realUrl)
+    video.play();
   }
 
   ionViewCanLeave(){

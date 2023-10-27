@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { LoadingController, ModalController, Platform, ToastController } from '@ionic/angular';
+import { LoadingController, ModalController, NavController, Platform, ToastController } from '@ionic/angular';
 import { VideoService } from 'src/app/service/video.service';
 import { Capacitor } from '@capacitor/core';
 import { Plugins } from '@capacitor/core';
@@ -26,6 +26,7 @@ export class NavigatorPage  implements AfterViewInit {
     private platform: Platform,
     private modalController:ModalController,
     private videoService:VideoService,
+    private navCtrl:NavController,
   ) {
     
   }
@@ -76,4 +77,7 @@ export class NavigatorPage  implements AfterViewInit {
     }
   }
 
+  voltar(){
+    this.navCtrl.pop();
+  }
 }
